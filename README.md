@@ -29,12 +29,14 @@
   - `TTY_RK.m`: a function of explicit RK4. 
 
 - `./burgers1d`
+  - `DEIM.m`: q-DEIM procedure.
   - `DFWCNS.m`: using WCNS(weighted compact nonlinear scheme) to generate the nonlinear term in Burgers equation.
   - `initialElements.m`: initial all the parameters, initial functions, etc. for both origional variable $u$ and slow variable $v$.
   - `main.m`: main program of 1D Burgers equation.
   - `makeFigures.m`: show the results.
   - `offline.m`: offline procedure in POD-qDEIM model reduction.
   - `online.m`: online procedure in POD-qDEIM model reduction.
+  - `POD.m`: POD function.
   - `v2u.m`: a function receive transform equation and slow variable $v$ (approximate) solution then generate ($U^v_{appr}$) $U^v$.
 ## Usage Instructions  
 
