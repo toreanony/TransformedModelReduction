@@ -2,16 +2,16 @@
 
 %%
 tStart= 0;
-tStop = 0.13;
+tStop = 0.18;
 xStart = -1; 
 xStop = 1;
 yStart = xStart;
 yStop = xStop;
 
 
-epsilon = 0.01;
+epsilon = 0.005;  
 dt = 5e-7;
-n = 500;            % n = ceil(4/epsilon). each axis discretize number.
+n = 1000;            % n = ceil(4/epsilon). each axis discretize number.
 shotsNum = 1000;    % the number of needed snapshots.
 
 deim_on = 1;  % 0: POD (no DEIM); 1: POD-DEIM (qDEIM).
@@ -40,9 +40,12 @@ vFileName = strcat("./data/v_n=",num2str(n),"_",num2str(epsilon),"_",num2str(tSt
 v2uFun = @(v) tanh(v/sqrt(2)/epsilon);  % transfer equation of AC.  
 
 [xGrid, yGrid] = meshgrid(xSpan, ySpan);
-v0 = (1.5*xGrid.^2 + yGrid.^2) - 0.3;  % the initial function of slow variable.
-% v0 = (2*xGrid.^2 + yGrid.^2) - 0.3;  % the initial function of slow variable.
-% v0 = (xGrid.^2/3*4 + yGrid.^2)-0.45;  % 可能是之前的19, 80 还可以的结果. 0.01, 200, 0.13(?)   
+% one circle.
+v0 = (xGrid.^2 + yGrid.^2) - 0.6; 
+
+% % two circles. 
+% v0_half = ((triu(xGrid)-0.35).^2 + (triu(yGrid)+0.35).^2) - 0.2;
+% v0 = v0_half + v0_half' - diag(diag(v0_half));
 
 clear xGrid yGrid
 v0 = reshape(v0, N, 1);

@@ -30,8 +30,8 @@ uvFull = v2uFun(vFull);  % U^v in the thesis.
 % tolDEIM = cumsum(sigFv.^2)/sum(sigFv.^2);
 % DEIMnum = find(1 - tolDEIM<tol, 1);
 
-PODnum = 18;
-DEIMnum = 30;
+PODnum = 50;
+DEIMnum = 100;
 
 %% compute the reduced solution.
 SetvROM
